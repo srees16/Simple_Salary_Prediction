@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <h3>Welcome to Salary Prediction Center</h3>
+    </head>
+    <body>
+        <form name = "sal_form" action = "." method = "post" target = "_self">
+            <label for = "name">Name: <label/>
+            <input type = "text" name = "nme" id = "name"></br></br>
+            
+            <label for = "exp">Experience: <label/>
+            <input type = "text" name = "exp" id = "experience"></br></br>
+            
+            <input type = "submit" value = "Submit"></br></br>
+        </form>
+    </body>
+    
+</html>
+
+<!--request.data: to get the raw data, when the incoming request data contains string. 
+Works when data couldn't be parsed as form data. To get the raw post body regardless of the content 
+type, use request.get_data(). request.data calls request.get_data(parse_form_data = True)
+
+request.args: for URL query parameters, key/value pairs in URL query string
+search = request.args.get("search")
+
+request.form: the key/value pairs from HTML post form
+email = request.form.get('email') # use get if the key might not exist
+password = request.form['password'] # use indexing if you know the key exists
+request.form.getlist('name'): use getlist if the key is sent multiple times and you want a list of 
+values. get only returns the first value
+
+request.values: combined args and form, preferring args if keys overlap
+
+request.files: the files in the body, which Flask keeps separate from form. HTML forms must use 
+enctype = multipart/form-data or files will not be uploaded.
+
+request.json(): parsed JSON data. Request must have application/json content type header, or use 
+request.get_json(force = True) to ignore the content type
+data = request.get_json()
+
+If you're not sure how data will be submitted, you can use an or chain to get the first one with data:
+def get_request_data():
+    return (request.args or request.form or request.get_json(force = True, silent = True) or request.data)
+-->
